@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <title>Blog</title>
+</head>
+<body>
+    <main>
+        <div class="container my-5 col-6">
+            <h1 class="mb-5">Blog Articles</h1>
+            <a href="/articles/new" class="btn btn-success">New Article</a>
+
+            <% articles.forEach(article => { %>
+                <div class="card mt-4">
+                    <div class="card-body">
+                        <h4 class="card-title"><%= article.title %></h4>
+
+                        <h6 class="card-subtitle text-muted mt-2">
+                            <%= article.creationDate.toLocaleDateString() %>
+                            &emsp;
+                            <%= article.creationDate.toLocaleTimeString() %>
+                        </h6>
+
+                        <p class="card-text mt-3">
+                            <%= article.description %>
+                        </p>
+
+                        <a href="/articles/<%= article.slug %>" class="btn btn-primary">Read More</a>
+
+                        <form action="/articles/<%= article.id %>?_method=DELETE" method="POST"
+                            class="d-inline">
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </div>
+                    
+                </div>
+            <% }) %>
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,12 @@
+npm i express mongoose ejs
+npm i --save-dev nodemon
+
+npm i marked slugify 
+marked: create markdown and turn it into html
+slugify: convert the title or other fields of Article into an url friendly slug (avoid using id of article in the url)
+
+npm i method-override #to do delete, patch, put request
+
+npm i dompurify jsdom
+dompurify: sanitize html
+jsdom: render html inside nodejs
